@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import './BookList.css';
+import './BooksList.css';
 
-const BookList = (props) => {
+const BooksList = (props) => {
   const { books } = props;
   return (
     <table>
@@ -21,12 +21,12 @@ const BookList = (props) => {
   );
 };
 
-BookList.propTypes = {
+BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
 };
 
-BookList.defaultProps = {
+BooksList.defaultProps = {
   books: [],
 };
 
-export default BookList;
+export default BooksList;
