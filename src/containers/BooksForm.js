@@ -8,7 +8,7 @@ const BookForm = () => {
       <input placeholder="Type the title" />
       <select>
         { categories.map((category) => (
-          <option value={category}>
+          <option value={category} key={category}>
             { category }
           </option>
         ))}

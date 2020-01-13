@@ -7,21 +7,23 @@ import './index.css';
 import App from './components/App';
 import rootReducer from './reducers';
 
-const initialState = [
-  {
-    id: uuidv4(),
-    title: 'Game of Thrones',
-    category: 'Learning',
-  }, {
-    id: uuidv4(),
-    title: 'Ruby on Rails - The Complete Guide',
-    category: 'Learning',
-  }, {
-    id: uuidv4(),
-    title: 'Harry Potter',
-    category: 'kids',
-  },
-];
+const initialState = {
+  books: [
+    {
+      id: uuidv4(),
+      title: 'Game of Thrones',
+      category: 'Learning',
+    }, {
+      id: uuidv4(),
+      title: 'Ruby on Rails - The Complete Guide',
+      category: 'Learning',
+    }, {
+      id: uuidv4(),
+      title: 'Harry Potter',
+      category: 'kids',
+    },
+  ],
+};
 
 const store = createStore(rootReducer, initialState);
 const { Provider } = ReactReduxContext;

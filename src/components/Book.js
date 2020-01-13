@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Book = (props) => {
   const { book } = props;
   return (
-    <tr>
+    <tr key={book.id}>
       <td>
         { book.id }
       </td>
