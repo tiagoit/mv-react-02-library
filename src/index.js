@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import uuidv4 from 'uuid/v4';
-import ReactRedux from 'react-redux';
+import { createStore } from 'redux';
+import { ReactReduxContext } from 'react-redux';
 import './index.css';
 import App from './components/App';
 import rootReducer from './reducers';
@@ -22,11 +23,12 @@ const initialState = [
   },
 ];
 
-const store = React.createStore(rootReducer, initialState);
-const { Provider } = ReactRedux;
+const store = createStore(rootReducer, initialState);
+const { Provider } = ReactReduxContext;
 
-ReactDOM.render((
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
-), document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root'),
+);

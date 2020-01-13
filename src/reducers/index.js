@@ -1,7 +1,7 @@
-import { ReactReduxContext } from 'react-redux';
+import { combineReducers } from 'redux';
 import booksReducer from './books';
 
-const rootReducer = ReactReduxContext.combineReducers({
+const rootReducer = combineReducers({
   books: booksReducer,
 });
 
