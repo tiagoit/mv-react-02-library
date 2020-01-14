@@ -6,6 +6,7 @@ const Book = (props) => {
   const handleDeleteBook = () => {
     deleteBook(book);
   };
+
   return (
     <tr key={book.id}>
       <td>

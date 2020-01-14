@@ -23,6 +23,7 @@ const initialState = {
       category: 'kids',
     },
   ],
+  category: 'All',
 };
 
 const store = createStore(rootReducer, initialState);
