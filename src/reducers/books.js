@@ -1,9 +1,9 @@
 const booksReducer = (prevState = {}, action) => {
   switch (action.type) {
     case 'CREATE_BOOK':
-      return { ...prevState, books: [...prevState.books, action.book] };
+      return [...prevState, action.book];
     case 'REMOVE_BOOK':
-      return { ...prevState, books: prevState.books.filter((b) => b.id !== action.book.id) };
+      return prevState.filter((b) => b.id !== action.book.id);
     default:
       return prevState;
   }

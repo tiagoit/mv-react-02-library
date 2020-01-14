@@ -6,7 +6,7 @@ const Book = (props) => {
   return (
     <tr key={book.id}>
       <td>
-        { book.id }
+        { book.id.slice(0, 5) }
       </td>
       <td>
         { book.title }

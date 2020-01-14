@@ -1,14 +1,2 @@
-const createBook = (book) => ({
-  type: 'CREATE_BOOK',
-  book,
-});
-
-const deleteBook = (book) => ({
-  type: 'DELETE_BOOK',
-  book,
-});
-
-exports = {
-  createBook,
-  deleteBook,
-};
+export const createBook = (book) => ({ type: 'CREATE_BOOK', book });
+export const deleteBook = (book) => ({ type: 'DELETE_BOOK', book });
