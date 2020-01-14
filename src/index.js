@@ -20,7 +20,7 @@ const initialState = {
     }, {
       id: uuidv4(),
       title: 'Harry Potter',
-      category: 'kids',
+      category: 'Kids',
     },
   ],
   category: 'All',

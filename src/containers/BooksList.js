@@ -5,7 +5,7 @@ import CategoryFilter from './CategoryFilter';
 import './BooksList.css';
 
 const BooksList = (props) => {
-  const { books, deleteBook, changeFilter } = props;
+  const { books, deleteBook, changeFilter, category } = props;
   const handleDeleteBook = (book) => deleteBook(book);
 
   return (
@@ -20,7 +20,7 @@ const BooksList = (props) => {
           </tr>
         </thead>
         <tbody>
-          { books.map((book) => (
+          { books.filter(b => (category === 'All' || b.category === category)).map((book) => (
             <Book
               book={book}
               key={book.id}
@@ -38,6 +38,7 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
   deleteBook: PropTypes.func,
   changeFilter: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 BooksList.defaultProps = {
