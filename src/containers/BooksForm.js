@@ -1,8 +1,7 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
-
-const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+import categories from '../constants/categories';
 
 class BookForm extends React.Component {
   constructor(props) {

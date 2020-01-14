@@ -1,16 +1,16 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-
+import categories from '../constants/categories';
 
 const CategoryFilter = (props) => {
-  const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+  const cat = ['All', ...categories];
   const { changeFilter } = props;
   const handleFilterChange = (ev) => changeFilter(ev.target.value);
   return (
     <div>
       Filter
       <select onChange={handleFilterChange}>
-        { categories.map(c => (
+        { cat.map(c => (
           <option value={c} key={c}>
             {c}
           </option>
