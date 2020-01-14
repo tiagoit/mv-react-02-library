@@ -1,4 +1,6 @@
 import React from 'react';
+import uuidv4 from 'uuid/v4';
+import PropTypes from 'prop-types';
 
 const categories = ['Action', 'Biography', 'History', 'Horror',
   'Kids', 'Learning', 'Sci-Fi'];
@@ -12,6 +14,7 @@ class BookForm extends React.Component {
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeInput(event) {
@@ -26,10 +29,22 @@ class BookForm extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const { title, category } = this.state;
+    const { addBook } = this.props;
+    console.log(this.props);
+    // addBook({
+    //   id: uuidv4().replace('-', '').slice(0, 10),
+    //   title,
+    //   category,
+    // });
+  }
+
   render() {
     const { title, category } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input placeholder="Type the title" onChange={this.handleChangeInput} value={title} />
         <select onChange={this.handleChangeSelect} value={category}>
           { categories.map((c) => (
@@ -43,5 +58,9 @@ class BookForm extends React.Component {
     );
   }
 }
+
+BookForm.propTypes = {
+  addBook: PropTypes.func.isRequired,
+};
 
 export default BookForm;
