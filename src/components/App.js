@@ -1,8 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 import BooksForm from '../containers/BooksForm';
 import BooksList from '../containers/BooksList';
 import './App.css';
+
+const mapStateToProps = (state) => ({ books: state.books });
+const BooksListContainer = connect(mapStateToProps, null)(BooksList);
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <BooksList books={this.books} />
+        <BooksListContainer />
         <BooksForm />
       </div>
     );

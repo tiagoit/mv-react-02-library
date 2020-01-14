@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import uuidv4 from 'uuid/v4';
 import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './components/App';
 import rootReducer from './reducers';
@@ -27,12 +27,9 @@ const initialState = {
 
 const store = createStore(rootReducer, initialState);
 
-const mapStateToProps = (state) => ({ books: state.books });
-const AppContainer = connect(mapStateToProps, null)(App);
-
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <App />
   </Provider>,
   document.getElementById('root'),
 );
