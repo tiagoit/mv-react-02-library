@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createBook, deleteBook } from '../actions/index';
-import BooksForm from '../containers/BooksForm';
+import { createBook, deleteBook, filterBook } from '../actions/index';
 import BooksList from '../containers/BooksList';
-import CategoryFilter from '../containers/CategoryFilter';
+import BooksForm from '../containers/BooksForm';
 import './App.css';
 
 const mapStateToProps = (state) => ({ books: state.books, category: state.category });
 const mapDispatchToProps = (dispatch) => ({
   deleteBook: (book) => dispatch(deleteBook(book)),
+  changeFilter: (filter) => dispatch(filterBook(filter)),
 });
 
 const BooksListContainer = connect(mapStateToProps, mapDispatchToProps)(BooksList);
@@ -22,7 +22,6 @@ const App = () => (
   <div>
     <BooksListContainer />
     <BooksFormContainer />
-    <CategoryFilter />
   </div>
 );
 

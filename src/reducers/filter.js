@@ -1,4 +1,4 @@
-const filterReducer = (prevState = {}, action) => {
+const filterReducer = (prevState = 'All', action) => {
   switch (action.type) {
     case 'CHANGE_FILTER':
       return action.filter;
