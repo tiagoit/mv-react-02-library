@@ -9,22 +9,17 @@ class BookForm extends React.Component {
     super(props);
     this.state = {
       title: '',
-      category: '',
+      category: 'Action',
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChangeInput(event) {
+  handleChange(e) {
     this.setState({
-      title: event.target.value,
-    });
-  }
-
-  handleChangeSelect(event) {
-    this.setState({
-      category: event.target.value,
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -33,14 +28,17 @@ class BookForm extends React.Component {
     const { title, category } = this.state;
     const { createBook } = this.props;
     createBook({ id: uuidv4(), title, category });
+    this.setState({
+      title: '',
+    });
   }
 
   render() {
     const { title, category } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <input placeholder="Type the title" onChange={this.handleChangeInput} value={title} />
-        <select onChange={this.handleChangeSelect} value={category}>
+        <input placeholder="Type the title" onChange={this.handleChange} value={title} name="title" />
+        <select onChange={this.handleChange} value={category} name="category">
           { categories.map(c => <option value={c} key={c}>{c}</option>) }
         </select>
         <button type="submit">Add Book</button>
