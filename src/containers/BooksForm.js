@@ -11,8 +11,6 @@ class BookForm extends React.Component {
       title: '',
       category: 'Action',
     };
-    this.handleChangeInput = this.handleChangeInput.bind(this);
-    this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
