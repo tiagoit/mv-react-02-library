@@ -9,6 +9,8 @@
   width: 1400px;
   height: 4rem;
   background-color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 .header-title {
   width: 240px;

@@ -47,3 +47,8 @@
   text-align: center;
   color: #ffffff;
 }
+
+td {
+  padding: 3rem;
+  text-align: center;
+}

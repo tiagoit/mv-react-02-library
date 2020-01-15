@@ -1,0 +1,8 @@
+.container-BooksList {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+.container-table {
+  align-self: center;
+}
