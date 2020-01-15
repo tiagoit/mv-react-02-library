@@ -19,7 +19,12 @@ const mapDispatchToPropsForm = (dispatch) => ({
 const BooksFormContainer = connect(null, mapDispatchToPropsForm)(BooksForm);
 
 const App = () => (
-  <div>
+  <div className="App">
+    <header className="header">
+      <h2 className="header-title">
+        BookStore CMS
+      </h2>
+    </header>
     <BooksListContainer />
     <BooksFormContainer />
   </div>
