@@ -2,6 +2,7 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
+import './BooksForm.css';
 
 class BookForm extends React.Component {
   constructor(props) {
@@ -37,13 +38,18 @@ class BookForm extends React.Component {
   render() {
     const { title, category } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder="Type the title" onChange={this.handleChangeInput} value={title} />
-        <select onChange={this.handleChangeSelect} value={category}>
-          { categories.map(c => <option value={c} key={c}>{c}</option>) }
-        </select>
-        <button type="submit">Add Book</button>
-      </form>
+      <div>
+        <h3 className="form-title">
+          Add New Book
+        </h3>
+        <form onSubmit={this.handleSubmit}>
+          <input className="input-title" placeholder="Type the title" onChange={this.handleChangeInput} value={title} />
+          <select className="input-category" onChange={this.handleChangeSelect} value={category}>
+            { categories.map(c => <option value={c} key={c}>{c}</option>) }
+          </select>
+          <button className="btn-add" type="submit">Add Book</button>
+        </form>
+      </div>
     );
   }
 }
