@@ -9,7 +9,7 @@ class BookForm extends React.Component {
     super(props);
     this.state = {
       title: '',
-      category: '',
+      category: 'Action',
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
@@ -20,6 +20,7 @@ class BookForm extends React.Component {
     this.setState({
       title: event.target.value,
     });
+    this.titleError = false;
   }
 
   handleChangeSelect(event) {
@@ -32,7 +33,11 @@ class BookForm extends React.Component {
     ev.preventDefault();
     const { title, category } = this.state;
     const { createBook } = this.props;
-    createBook({ id: uuidv4(), title, category });
+    if (title) createBook({ id: uuidv4(), title, category });
+    else {
+      this.titleError = true;
+      this.forceUpdate();
+    }
   }
 
   render() {
@@ -43,7 +48,12 @@ class BookForm extends React.Component {
           Add New Book
         </h3>
         <form onSubmit={this.handleSubmit}>
-          <input className="input-title" placeholder="Type the title" onChange={this.handleChangeInput} value={title} />
+          <input
+            className={`input-title ${this.titleError ? 'error' : ''}`}
+            placeholder="Type the title"
+            onChange={this.handleChangeInput}
+            value={title}
+          />
           <select className="input-category" onChange={this.handleChangeSelect} value={category}>
             { categories.map(c => <option value={c} key={c}>{c}</option>) }
           </select>
