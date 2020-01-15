@@ -4,7 +4,7 @@ import { createBook, deleteBook, filterBook } from '../actions/index';
 import BooksList from '../containers/BooksList';
 import BooksForm from '../containers/BooksForm';
 import './App.scss';
-import userSolid from '../images/user-solid.svg';
+import userSolid from '../assets/images/user-solid.svg';
 
 const mapStateToProps = (state) => ({ books: state.books, category: state.category });
 const mapDispatchToProps = (dispatch) => ({

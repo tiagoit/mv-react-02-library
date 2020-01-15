@@ -2,9 +2,10 @@
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #ffffff;
+  margin-bottom: 16px;
+  padding: 12px 24px;
 }
 .book-title {
-  width: 197px;
   height: 29px;
   font-family: RobotoSlab;
   font-size: 22px;
@@ -44,6 +45,10 @@
   letter-spacing: 0.5px;
   text-align: center;
   color: #ffffff;
+  align-self: right;
+  float: right;
+  top: 0;
+  margin-top: -38px;
 }
 
 td {

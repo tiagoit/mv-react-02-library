@@ -9,20 +9,13 @@ const Book = (props) => {
   };
 
   return (
-    <tr key={book.id} className="book-row">
-      <td>
-        { book.id.slice(0, 5) }
-      </td>
-      <td className="book-title">
-        { book.title }
-      </td>
-      <td className="book-category">
-        { book.category }
-      </td>
-      <td>
+    <div key={book.id} className="book-row">
+      <div className="book-category">{ book.category }</div>
+      <div className="book-title">{ book.title }</div>
+      <div>
         <button className="btn-remove" onClick={handleDeleteBook} type="button">Delete</button>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 };
 

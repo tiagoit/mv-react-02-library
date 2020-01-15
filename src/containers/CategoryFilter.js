@@ -9,7 +9,6 @@ const CategoryFilter = (props) => {
   const handleFilterChange = (ev) => changeFilter(ev.target.value);
   return (
     <div className="container-filter">
-      Filter
       <select onChange={handleFilterChange}>
         { cat.map(c => (
           <option value={c} key={c}>

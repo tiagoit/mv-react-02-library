@@ -12,25 +12,13 @@ const BooksList = (props) => {
     <div className="container-BooksList">
       <CategoryFilter changeFilter={changeFilter} />
       <div className="container-table">
-        <table className="table-BookList">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>title</th>
-              <th>category</th>
-              {/* <th>DELETE</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            { books.filter(b => (category === 'All' || b.category === category)).map((book) => (
-              <Book
-                book={book}
-                key={book.id}
-                deleteBook={handleDeleteBook}
-              />
-            ))}
-          </tbody>
-        </table>
+        { books.filter(b => (category === 'All' || b.category === category)).map((book) => (
+          <Book
+            book={book}
+            key={book.id}
+            deleteBook={handleDeleteBook}
+          />
+        ))}
       </div>
     </div>
   );
