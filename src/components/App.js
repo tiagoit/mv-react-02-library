@@ -1,32 +1,27 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+import { createBook, deleteBook } from '../actions/index';
 import BooksForm from '../containers/BooksForm';
 import BooksList from '../containers/BooksList';
 import './App.css';
 
 const mapStateToProps = (state) => ({ books: state.books });
-const BooksListContainer = connect(mapStateToProps, null)(BooksList);
+const mapDispatchToProps = (dispatch) => ({
+  deleteBook: (book) => dispatch(deleteBook(book)),
+});
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    const { books } = this.props;
-    this.books = books;
-  }
+const BooksListContainer = connect(mapStateToProps, mapDispatchToProps)(BooksList);
 
-  render() {
-    return (
-      <div>
-        <BooksListContainer />
-        <BooksForm />
-      </div>
-    );
-  }
-}
+const mapDispatchToPropsForm = (dispatch) => ({
+  createBook: (book) => dispatch(createBook(book)),
+});
+const BooksFormContainer = connect(null, mapDispatchToPropsForm)(BooksForm);
 
-App.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+const App = () => (
+  <div>
+    <BooksListContainer />
+    <BooksFormContainer />
+  </div>
+);
 
 export default App;

@@ -4,7 +4,8 @@ import Book from '../components/Book';
 import './BooksList.css';
 
 const BooksList = (props) => {
-  const { books } = props;
+  const { books, deleteBook } = props;
+  const handleDeleteBook = (book) => deleteBook(book);
   return (
     <table>
       <thead>
@@ -12,10 +13,11 @@ const BooksList = (props) => {
           <th>id</th>
           <th>title</th>
           <th>category</th>
+          <th>DELETE</th>
         </tr>
       </thead>
       <tbody>
-        { books.map((book) => <Book book={book} key={book.id} />)}
+        { books.map((book) => <Book book={book} key={book.id} deleteBook={handleDeleteBook} />)}
       </tbody>
     </table>
   );
@@ -23,10 +25,12 @@ const BooksList = (props) => {
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
+  deleteBook: PropTypes.func,
 };
 
 BooksList.defaultProps = {
   books: [],
+  deleteBook: null,
 };
 
 export default BooksList;
