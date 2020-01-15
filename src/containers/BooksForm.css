@@ -1,6 +1,11 @@
+.container-BooksForm {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
 .form-title {
-  width: 174px;
-  height: 24px;
   font-family: Montserrat;
   font-size: 20px;
   font-weight: bold;
