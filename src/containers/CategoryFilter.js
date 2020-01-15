@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import categories from '../constants/categories';
-import './CategoryFilter.css';
+import './CategoryFilter.scss';
 
 const CategoryFilter = (props) => {
   const cat = ['All', ...categories];

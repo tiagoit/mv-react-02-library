@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Book.css';
+import './Book.scss';
 
 const Book = (props) => {
   const { book, deleteBook } = props;

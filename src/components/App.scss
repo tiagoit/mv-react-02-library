@@ -1,16 +1,16 @@
 .App {
-  width: 1400px;
-  height: 1097px;
   border-radius: 4px;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
 }
+
 .header {
-  height: 4rem;
+  height: 95px;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
+
 .header-title {
   width: 240px;
   height: 37px;
@@ -22,4 +22,23 @@
   line-height: normal;
   letter-spacing: normal;
   color: #0290ff;
+  padding-left: 100px;
+  position: absolute;
+  left: 0;
+}
+
+span.user-profile {
+  height: 32px;
+  border-radius: 50%;
+  width: 32px;
+  border: 1px solid #0290ff;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  img {
+    height: 17px;
+    padding-top: 7px;
+    padding-left: 9px;
+  }
 }

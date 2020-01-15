@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import CategoryFilter from './CategoryFilter';
-import './BooksList.css';
+import './BooksList.scss';
 
 const BooksList = (props) => {
   const { books, deleteBook, changeFilter, category } = props;

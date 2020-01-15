@@ -2,7 +2,7 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
-import './BooksForm.css';
+import './BooksForm.scss';
 
 class BookForm extends React.Component {
   constructor(props) {

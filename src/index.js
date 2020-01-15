@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import uuidv4 from 'uuid/v4';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import './index.css';
+import './index.scss';
 import App from './components/App';
 import rootReducer from './reducers';
 
