@@ -11,21 +11,14 @@ class BookForm extends React.Component {
       title: '',
       category: 'Action',
     };
-    this.handleChangeInput = this.handleChangeInput.bind(this);
-    this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChangeInput(event) {
-    this.setState({
-      title: event.target.value,
-    });
+  handleChange(ev) {
     this.titleError = false;
-  }
-
-  handleChangeSelect(event) {
     this.setState({
-      category: event.target.value,
+      [ev.target.name]: ev.target.value,
     });
   }
 
@@ -33,7 +26,11 @@ class BookForm extends React.Component {
     ev.preventDefault();
     const { title, category } = this.state;
     const { createBook } = this.props;
-    if (title) createBook({ id: uuidv4(), title, category });
+    if (title) {
+      createBook({ id: uuidv4(), title, category });
+      this.setState({
+        title: '',
+      });
     else {
       this.titleError = true;
       this.forceUpdate();
@@ -51,10 +48,16 @@ class BookForm extends React.Component {
           <input
             className={`input-title ${this.titleError ? 'error' : ''}`}
             placeholder="Type the title"
-            onChange={this.handleChangeInput}
+            onChange={this.handleChange}
+            name="title"            
             value={title}
           />
-          <select className="input-category" onChange={this.handleChangeSelect} value={category}>
+          <select 
+            className="input-category"
+            onChange={this.handleChange}
+            name="category"
+            value={category}
+          >
             { categories.map(c => <option value={c} key={c}>{c}</option>) }
           </select>
           <button className="btn-add" type="submit">Add Book</button>
