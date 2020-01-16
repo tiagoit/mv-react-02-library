@@ -31,7 +31,7 @@ class BookForm extends React.Component {
       this.setState({
         title: '',
       });
-    else {
+    } else {
       this.titleError = true;
       this.forceUpdate();
     }
@@ -49,10 +49,10 @@ class BookForm extends React.Component {
             className={`input-title ${this.titleError ? 'error' : ''}`}
             placeholder="Type the title"
             onChange={this.handleChange}
-            name="title"            
+            name="title"
             value={title}
           />
-          <select 
+          <select
             className="input-category"
             onChange={this.handleChange}
             name="category"
