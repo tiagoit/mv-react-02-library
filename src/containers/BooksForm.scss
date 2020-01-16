@@ -1,0 +1,47 @@
+.container-BooksForm {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-title {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888888;
+  padding-left: 8px;
+}
+
+.btn-add {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-family: RobotoSlab;
+  font-size: 13px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.input-title, .input-category {
+  height: 2rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #ffffff;
+  padding: 0 12px;
+  margin-right: 8px;
+}
+
+.input-title.error {
+  border: 1px solid red;
+}
