@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import CategoryFilter from './CategoryFilter';
+import CategoryFilter from '../components/CategoryFilter';
 import './BooksList.scss';
 
 const BooksList = (props) => {
-  const { books, deleteBook, changeFilter, category } = props;
+  const {
+    books,
+    deleteBook,
+    changeFilter,
+    category,
+  } = props;
   const handleDeleteBook = (book) => deleteBook(book);
 
   return (
