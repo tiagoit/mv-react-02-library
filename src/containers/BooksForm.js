@@ -2,6 +2,7 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
+import './BooksForm.scss';
 
 class BookForm extends React.Component {
   constructor(props) {
@@ -14,9 +15,10 @@ class BookForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
+  handleChange(ev) {
+    this.titleError = false;
     this.setState({
-      [e.target.name]: e.target.value,
+      [ev.target.name]: ev.target.value,
     });
   }
 
@@ -24,22 +26,43 @@ class BookForm extends React.Component {
     ev.preventDefault();
     const { title, category } = this.state;
     const { createBook } = this.props;
-    createBook({ id: uuidv4(), title, category });
-    this.setState({
-      title: '',
-    });
+    if (title) {
+      createBook({ id: uuidv4(), title, category });
+      this.setState({
+        title: '',
+      });
+    } else {
+      this.titleError = true;
+      this.forceUpdate();
+    }
   }
 
   render() {
     const { title, category } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder="Type the title" onChange={this.handleChange} value={title} name="title" />
-        <select onChange={this.handleChange} value={category} name="category">
-          { categories.map(c => <option value={c} key={c}>{c}</option>) }
-        </select>
-        <button type="submit">Add Book</button>
-      </form>
+      <div className="container-BooksForm">
+        <h3 className="form-title">
+          Add New Book
+        </h3>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className={`input-title ${this.titleError ? 'error' : ''}`}
+            placeholder="Type the title"
+            onChange={this.handleChange}
+            name="title"
+            value={title}
+          />
+          <select
+            className="input-category"
+            onChange={this.handleChange}
+            name="category"
+            value={category}
+          >
+            { categories.map(c => <option value={c} key={c}>{c}</option>) }
+          </select>
+          <button className="btn-add" type="submit">Add Book</button>
+        </form>
+      </div>
     );
   }
 }

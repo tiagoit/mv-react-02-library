@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Book.scss';
 
 const Book = (props) => {
   const { book, deleteBook } = props;
@@ -8,20 +9,13 @@ const Book = (props) => {
   };
 
   return (
-    <tr key={book.id}>
-      <td>
-        { book.id.slice(0, 5) }
-      </td>
-      <td>
-        { book.title }
-      </td>
-      <td>
-        { book.category }
-      </td>
-      <td>
-        <button onClick={handleDeleteBook} type="button">Delete</button>
-      </td>
-    </tr>
+    <div key={book.id} className="book-row">
+      <div className="book-category">{ book.category }</div>
+      <div className="book-title">{ book.title }</div>
+      <div>
+        <button className="btn-remove" onClick={handleDeleteBook} type="button">Delete</button>
+      </div>
+    </div>
   );
 };
 

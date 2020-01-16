@@ -1,14 +1,14 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import categories from '../constants/categories';
+import './CategoryFilter.scss';
 
 const CategoryFilter = (props) => {
   const cat = ['All', ...categories];
   const { changeFilter } = props;
   const handleFilterChange = (ev) => changeFilter(ev.target.value);
   return (
-    <div>
-      Filter
+    <div className="container-filter">
       <select onChange={handleFilterChange}>
         { cat.map(c => (
           <option value={c} key={c}>

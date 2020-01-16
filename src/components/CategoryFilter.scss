@@ -1,0 +1,12 @@
+.container-filter {
+  align-self: center;
+  position: absolute;
+  top: 102px;
+
+  select {
+    height: 28px;
+    border: 0;
+    padding: 4px;
+    border-radius: 2px;
+  }
+}

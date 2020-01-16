@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import CategoryFilter from '../components/CategoryFilter';
-import './BooksList.css';
+import './BooksList.scss';
 
 const BooksList = (props) => {
   const {
@@ -14,27 +14,17 @@ const BooksList = (props) => {
   const handleDeleteBook = (book) => deleteBook(book);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>category</th>
-            <th>DELETE</th>
-          </tr>
-        </thead>
-        <tbody>
-          { books.filter(b => (category === 'All' || b.category === category)).map((book) => (
-            <Book
-              book={book}
-              key={book.id}
-              deleteBook={handleDeleteBook}
-            />
-          ))}
-        </tbody>
-      </table>
+    <div className="container-BooksList">
       <CategoryFilter changeFilter={changeFilter} />
+      <div className="container-table">
+        { books.filter(b => (category === 'All' || b.category === category)).map((book) => (
+          <Book
+            book={book}
+            key={book.id}
+            deleteBook={handleDeleteBook}
+          />
+        ))}
+      </div>
     </div>
   );
 };

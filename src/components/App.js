@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { createBook, deleteBook, filterBook } from '../actions/index';
 import BooksList from '../containers/BooksList';
 import BooksForm from '../containers/BooksForm';
-import './App.css';
+import './App.scss';
+import userSolid from '../assets/images/user-solid.svg';
 
 const mapStateToProps = (state) => ({ books: state.books, category: state.category });
 const mapDispatchToProps = (dispatch) => ({
@@ -19,7 +20,15 @@ const mapDispatchToPropsForm = (dispatch) => ({
 const BooksFormContainer = connect(null, mapDispatchToPropsForm)(BooksForm);
 
 const App = () => (
-  <div>
+  <div className="App">
+    <header className="header">
+      <h2 className="header-title">
+        BookStore CMS
+      </h2>
+      <span className="user-profile">
+        <img alt="user svg" src={userSolid} />
+      </span>
+    </header>
     <BooksListContainer />
     <BooksFormContainer />
   </div>
