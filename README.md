@@ -58,3 +58,8 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](https://github.com/ferreirati/mv-react-01-library/license.txt) licensed.
+
+## 📞 Contact
+- **Tiago Ferreira** - [@tiagoit](https://github.com/tiagoit)
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/tiagoit-dev/) or drop me a line at <tiagoitferreira@gmail.com>.
